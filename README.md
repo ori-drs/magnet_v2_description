@@ -1,6 +1,6 @@
 # magnet_v2_description
 
-![Magnet mapping device](./media/magnet_v2_picture.png)
+<p align="center"><img src=./media/magnet_v2_picture.png>
 
 This package contains a **URDF Xacro description of the Magnet V2**, a mapping device consisting of a Hesai QT64/Pander XT32, a Microstrain GX5-AR, 3 E-con global shutter cameras and a Jetson Orin AGX Dev Kit.
 
