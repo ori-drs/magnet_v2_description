@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="magnet_v2">
+
+  <xacro:macro name="magnet_v2" params="parent *origin prefix:='' name:=magnet_v2
+                                     simulation:=false use_gpu:=true">
+    <joint name="${parent}_to_${prefix}magnet_v2_top_case" type="fixed">
+      <xacro:insert_block name="origin"/>
+      <parent link="${parent}" />
+      <child link="${prefix}magnet_v2_top_case" />
+    </joint>
+
+    <link name="${prefix}magnet_v2_top_case">
+      <visual>
+        <material name="darkgrey">
+            <color rgba="0.3 0.3 0.3 1"/>
+        </material>
+        <origin xyz="0 0 -0.056" rpy="${pi} 0 0"/>
+        <geometry>
+          <mesh filename="package://magnet_description/meshes/visual/top case v3.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <xacro:include filename="$(find microstrain_inertial_description)/urdf/gx5_ar.urdf.xacro"/>
+
+    <xacro:gx5_ar name="${prefix}gx5_ar" parent="${prefix}magnet_v2_top_case">
+      <origin xyz="0.00 0.0 0.0" rpy="0 0 0" />
+    </xacro:gx5_ar>
+
+    <xacro:include filename="$(find E-con_inertial_description)/urdf/E-con_eCAM.urdf.xacro"/>
+
+    <xacro:E-con_eCAM name="${prefix}left_camera" parent="${prefix}magnet_v2_top_case">
+      <origin xyz="0.00 0.043 -0.011" rpy="0 0 ${pi/2}" />
+    </xacro:left_E-con>
+
+    <xacro:E-con_eCAM name="${prefix}centre_camera" parent="${prefix}magnet_v2_top_case">
+      <origin xyz="-0.043 0.000 -0.011" rpy="0 0 0" />
+    </xacro:E-con_eCAM>
+
+    <xacro:E-con_eCAM name="${prefix}right_camera" parent="${prefix}magnet_v2_top_case">
+      <origin xyz="0.00 -0.043 -0.011" rpy="0 0 ${-pi/2}" />
+    </xacro:E-con_eCAM>
+
+    <link name="heatsink">
+      <visual>
+        <material name="silver">
+            <color rgba="0.7 0.7 0.7 1"/>
+        </material>
+        <origin xyz="0 0 0.01" rpy="${pi} 0 0"/>
+        <geometry>
+          <mesh filename="package://magnet_v2_description/meshes/visual/heatsink lidar v2.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint name="${prefix}magnet_v2_top_case_to_${prefix}heatsink" type="fixed">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <parent link="${prefix}magnet_v2_top_case" />
+      <child link="${prefix}heatsink" />
+    </joint>
+
+
+    <link name="bottom_case">
+      <visual>
+        <material name="darkgrey">
+            <color rgba="0.3 0.3 0.3 1"/>
+        </material>
+        <origin xyz="0 0 -0.056" rpy="${pi} 0 0"/>
+        <geometry>
+          <mesh filename="package://magnet_v2_description/meshes/visual/bottom case v3.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint name="${prefix}magnet_v2_top_case_to_${prefix}bottom_case" type="fixed">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <parent link="${prefix}magnet_v2_top_case" />
+      <child link="${prefix}bottom_case" />
+    </joint>
+
+    <xacro:include filename="$(find hesai_description)/urdf/hesai_qt64.urdf.xacro"/>
+
+    <!-- The height of the Magnet 3D-printed case: From bottom of case to the origin of the imu -->
+    <xacro:property name="magnet_case_height" value="0.11512"/>
+
+    <xacro:hesai_qt64 name="${prefix}hesai_qt64" parent="${prefix}magnet_v2_top_case" simulation="${simulation}" use_gpu="${use_gpu}">
+      <origin xyz="0 0 0.01" rpy="0 0 0" />
+    </xacro:hesai_qt64>
+
+    <link name="${prefix}magnet_v2_base" />
+    <joint name="${prefix}magnet_v2_top_case_to_${prefix}magnet_base" type="fixed">
+      <parent link="${prefix}magnet_v2_top_case" />
+      <child link="${prefix}magnet_v2_base" />
+      <origin xyz="0 0 ${magnet_v2_case_height}" rpy="0 0 0" />
+    </joint>
+
+  </xacro:macro>
+
+</robot>
