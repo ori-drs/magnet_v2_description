@@ -1,9 +1,9 @@
 """
 @file description.launch.py
 @brief
-    Launch file for Magnet mapping device
+    Launch file for Magnet v2 mapping device
 @author
-    Tobit Flatscher <tobit@robots.ox.ac.uk>
+    Matthew Graham <matthewgraham@robots.ox.ac.uk>
 """
 
 from ament_index_python.packages import get_package_share_directory
@@ -28,7 +28,7 @@ def generate_launch_description():
     )
     default_xacro_file = PathJoinSubstitution(
         [
-            get_package_share_directory('magnet_description'),
+            get_package_share_directory('magnet_v2_description'),
             'urdf', 'standalone.urdf.xacro'
         ]
     )
