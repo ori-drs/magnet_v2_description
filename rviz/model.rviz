@@ -63,11 +63,11 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
-        gx5_15:
+        gx5_ar:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        gx5_15_center:
+        gx5_ar_center:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -82,7 +82,12 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        magnet_mount:
+        magnet_v2_top_case:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        magnet_v2_bottom_case:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -91,6 +96,21 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+        centre_camera:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_camera:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_camera:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         root:
           Alpha: 1
           Show Axes: false
@@ -108,15 +128,23 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: true
-        gx5_15:
+        gx5_ar:
           Value: true
-        gx5_15_center:
+        gx5_ar_center:
           Value: true
         heatsink:
           Value: true
         hesai_base:
           Value: true
-        magnet_mount:
+        magnet_v2_top_case:
+          Value: true
+        magnet_v2_bottom_case:
+          Value: true
+        left_camera:
+          Value: true
+        right_camera:
+          Value: true
+        centre_camera:
           Value: true
         pandar:
           Value: true
@@ -129,15 +157,23 @@ Visualization Manager:
       Show Names: false
       Tree:
         root:
-          magnet_mount:
-            gx5_15_center:
-              gx5_15:
+          magnet_v2_top_case:
+            gx5_ar_center:
+              gx5_ar:
                 {}
             heatsink:
               {}
             hesai_base:
               pandar:
                 {}
+            magnet_v2_bottom_case:
+              {}
+            left_camera:
+              {}
+            right_camera:
+              {}
+            centre_camera:
+              {}
       Update Interval: 0
       Value: true
   Enabled: true
