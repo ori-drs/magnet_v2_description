@@ -21,6 +21,6 @@ $ rosdep install --from-paths src --ignore-src -r
 For visualizing the URDF with RViz launch:
 
 ```bash
-$ ros2 launch magnet_description visualize.launch.py
+$ ros2 launch magnet_v2_description visualize.launch.py
 ```
 
