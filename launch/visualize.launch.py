@@ -1,9 +1,9 @@
 """
 @file visualize.launch.py
 @brief
-    Launch file for visualizing Magnet URDF
+    Launch file for visualizing Magnet v2 URDF
 @author
-    Tobit Flatscher <tobit@robots.ox.ac.uk>
+    Matthew Graham <matthewgraham@robots.ox.ac.uk>
 """
 
 import os
@@ -20,7 +20,7 @@ def generate_launch_description():
         PythonLaunchDescriptionSource(
             [
                 os.path.join(
-                    get_package_share_directory('magnet_description'),
+                    get_package_share_directory('magnet_v2_description'),
                     'launch', 'description.launch.py'
                 )
             ]
@@ -31,7 +31,7 @@ def generate_launch_description():
     )
 
     rviz_file = os.path.join(
-        get_package_share_directory('magnet_description'),
+        get_package_share_directory('magnet_v2_description'),
         'rviz',
         'model.rviz'
     )
