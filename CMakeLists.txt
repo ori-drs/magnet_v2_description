@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(magnet_description)
+project(magnet_v2_description)
 
 find_package(ament_cmake REQUIRED)
 
