@@ -1,0 +1,14 @@
+<launch>
+  <include file="$(find magnet_v2_description)/launch/description.launch">
+    <arg name="simulation" value="true" />
+  </include>
+
+  <node pkg="joint_state_publisher"
+        type="joint_state_publisher"
+        name="joint_state_publisher" />
+
+  <node pkg="rviz"
+        type="rviz"
+        name="rviz"
+        args="-d $(find magnet_v2_description)/rviz/model.rviz" />
+</launch>
