@@ -4,23 +4,23 @@
 
 This package contains a **URDF Xacro description of the Magnet V2**, a mapping device consisting of a Hesai QT64/Pander XT32, a Microstrain GX5-AR, 3 E-con global shutter cameras and a Jetson Orin AGX Dev Kit.
 
-This package requires the `microstrain_inertial_description` as well as `xacro` which can be installed with:
+This ReadMe is for ROS1 specifically that we used to run with the Anymal-d simulator to create a complete robot urdf assembly.
 
+
+This package requires the `microstrain_inertial_description` as well as `xacro`. In following steps assume you have xarco installed already.
+
+Go to your catkin_ws and do:
 ```bash
-$ sudo apt-get install ros-$ROS_DISTRO-microstrain-inertial-description ros-$ROS_DISTRO-xacro
+$ cd src
+$ git clone https://github.com/LORD-MicroStrain/microstrain_inertial.git
+$ cd ..
+$ catkin build microstrain_inertial_description
+$ catkin build magnet_v2_description
 ```
-
-or alternatively automatically through `rosdep`: 
-
-```bash
-$ rosdep install --from-paths src --ignore-src -r
-```
-
-
 
 For visualizing the URDF with RViz launch:
 
 ```bash
-$ ros2 launch magnet_v2_description visualize.launch.py
+$ roslaunch magnet_v2_description visualize.launch
 ```
 
