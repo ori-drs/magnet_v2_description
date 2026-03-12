@@ -27,7 +27,9 @@ $ cd src
 $ git clone git@github.com:ori-drs/magnet_v2_description.git
 $ cd magnet_v2_description
 $ git checkout compatible_with_anymal_d_ros_1
+$ cd ../..
 $ catkin build magnet_v2_description
+$ source devel/setup.bash
 ```
 
 For visualizing the URDF with RViz launch:
