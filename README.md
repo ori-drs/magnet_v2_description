@@ -12,9 +12,21 @@ This package requires the `microstrain_inertial_description` as well as `xacro`.
 Go to your catkin_ws and do:
 ```bash
 $ cd src
+$ git clone git@github.com:ori-drs/hesai_description.git
+$ cd hesai_description
+$ git checkout ros1
+$ cd ../..
+$ catkin build hesai_description
+$ source devel/setup.bash
+$ cd src
 $ git clone https://github.com/LORD-MicroStrain/microstrain_inertial.git
 $ cd ..
 $ catkin build microstrain_inertial_description
+$ source devel/setup.bash
+$ cd src
+$ git clone git@github.com:ori-drs/magnet_v2_description.git
+$ cd magnet_v2_description
+$ git checkout compatible_with_anymal_d_ros_1
 $ catkin build magnet_v2_description
 ```
 
