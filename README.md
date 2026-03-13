@@ -7,7 +7,7 @@ This package contains a **URDF Xacro description of the Magnet V2**, a mapping d
 This ReadMe is for ROS1 specifically that we used to run with the Anymal-d simulator to create a complete robot urdf assembly.
 
 
-This package requires the `microstrain_inertial_description` as well as `xacro`. In following steps assume you have xarco installed already.
+This package requires the `microstrain_inertial_description`, `joint_state_publisher`, as well as `xacro`. In following steps assume you have `xarco` and `joint_state_publisher` installed already.
 
 Go to your catkin_ws and do:
 ```bash
