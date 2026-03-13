@@ -1,5 +1,5 @@
 Panels:
-  - Class: rviz/Displays
+  - Class: rviz_common/Displays
     Help Height: 138
     Name: Displays
     Property Tree Widget:
@@ -11,15 +11,15 @@ Panels:
         - /TF1/Frames1
       Splitter Ratio: 0.5
     Tree Height: 1888
-  - Class: rviz/Selection
+  - Class: rviz_common/Selection
     Name: Selection
-  - Class: rviz/Tool Properties
+  - Class: rviz_common/Tool Properties
     Expanded:
       - /2D Goal Pose1
       - /Publish Point1
     Name: Tool Properties
     Splitter Ratio: 0.5886790156364441
-  - Class: rviz/Views
+  - Class: rviz_common/Views
     Expanded:
       - /Current View1
     Name: Views
@@ -29,7 +29,7 @@ Visualization Manager:
   Displays:
     - Alpha: 0.5
       Cell Size: 1
-      Class: rviz/Grid
+      Class: rviz_default_plugins/Grid
       Color: 160; 160; 164
       Enabled: true
       Line Style:
@@ -46,9 +46,11 @@ Visualization Manager:
       Reference Frame: <Fixed Frame>
       Value: true
     - Alpha: 1
-      Class: rviz/RobotModel
+      Class: rviz_default_plugins/RobotModel
       Collision Enabled: false
       Robot Description: robot_description
+      Description Source: Topic
+      Description Topic: /robot_description
       Enabled: true
       Links:
         All Links Enabled: true
@@ -56,58 +58,6 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
-        gx5_ar:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        gx5_ar_center:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        heatsink:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        hesai_base:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        magnet_v2_top_case:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        magnet_v2_bottom_case:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        pandar:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        centre_camera:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        left_camera:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        right_camera:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        root:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
       Mass Properties:
         Inertia: false
         Mass: false
@@ -116,7 +66,7 @@ Visualization Manager:
       Update Interval: 0
       Value: true
       Visual Enabled: true
-    - Class: rviz/TF
+    - Class: rviz_default_plugins/TF
       Enabled: true
       Frame Timeout: 15
       Frames:
@@ -176,30 +126,30 @@ Visualization Manager:
     Frame Rate: 30
   Name: root
   Tools:
-    - Class: rviz/Interact
+    - Class: rviz_default_plugins/Interact
       Hide Inactive Objects: true
-    - Class: rviz/MoveCamera
-    - Class: rviz/Select
-    - Class: rviz/FocusCamera
-    - Class: rviz/Measure
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/Select
+    - Class: rviz_default_plugins/FocusCamera
+    - Class: rviz_default_plugins/Measure
       Line color: 128; 128; 0
-    - Class: rviz/SetInitialPose
+    - Class: rviz_default_plugins/SetInitialPose
       Covariance x: 0.25
       Covariance y: 0.25
       Covariance yaw: 0.06853891909122467
       Topic: /initialpose
-    - Class: rviz/SetGoal
+    - Class: rviz_default_plugins/SetGoal
       Topic: /goal_pose
-    - Class: rviz/PublishPoint
+    - Class: rviz_default_plugins/PublishPoint
       Single click: true
       Topic: /clicked_point
   Transformation:
     Current:
-      Class: rviz/TF
+      Class: rviz_default_plugins/TF
   Value: true
   Views:
     Current:
-      Class: rviz/Orbit
+      Class: rviz_default_plugins/Orbit
       Distance: 0.515805721282959
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
