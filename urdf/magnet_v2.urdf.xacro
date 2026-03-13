@@ -21,17 +21,17 @@
       </visual>
     </link>
 
-    <xacro:include filename="$(find microstrain_inertial_description)/urdf/gx5_ar.urdf.xacro"/>
+    <xacro:include filename="$(find microstrain_inertial_description)/urdf/gx5_25.urdf.xacro"/>
 
-    <xacro:gx5_ar name="${prefix}gx5_ar" parent="${prefix}magnet_v2_top_case">
+    <xacro:gx5_25 name="${prefix}gx5_ar" parent="${prefix}magnet_v2_top_case">
       <origin xyz="0.00 0.0 0.0" rpy="0 0 0" />
-    </xacro:gx5_ar>
+    </xacro:gx5_25>
 
-    <xacro:include filename="$(find E-con_inertial_description)/urdf/E-con_eCAM.urdf.xacro"/>
+    <!-- <xacro:include filename="$(find E-con_inertial_description)/urdf/E-con_eCAM.urdf.xacro"/>
 
     <xacro:E-con_eCAM name="${prefix}left_camera" parent="${prefix}magnet_v2_top_case">
       <origin xyz="0.00 0.043 -0.011" rpy="0 0 ${pi/2}" />
-    </xacro:left_E-con>
+    </xacro:E-con_eCAM>
 
     <xacro:E-con_eCAM name="${prefix}centre_camera" parent="${prefix}magnet_v2_top_case">
       <origin xyz="-0.043 0.000 -0.011" rpy="0 0 0" />
@@ -39,7 +39,7 @@
 
     <xacro:E-con_eCAM name="${prefix}right_camera" parent="${prefix}magnet_v2_top_case">
       <origin xyz="0.00 -0.043 -0.011" rpy="0 0 ${-pi/2}" />
-    </xacro:E-con_eCAM>
+    </xacro:E-con_eCAM> -->
 
     <link name="heatsink">
       <visual>
@@ -81,7 +81,7 @@
     <xacro:include filename="$(find hesai_description)/urdf/hesai_qt64.urdf.xacro"/>
 
     <!-- The height of the Magnet 3D-printed case: From bottom of case to the origin of the imu -->
-    <xacro:property name="magnet_case_height" value="0.11512"/>
+    <xacro:property name="magnet_v2_case_height" value="0.11512"/>
 
     <xacro:hesai_qt64 name="${prefix}hesai_qt64" parent="${prefix}magnet_v2_top_case" simulation="${simulation}" use_gpu="${use_gpu}">
       <origin xyz="0 0 0.01" rpy="0 0 0" />
