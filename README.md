@@ -7,34 +7,40 @@ This package contains a **URDF Xacro description of the Magnet V2**, a mapping d
 This ReadMe is for ROS1 specifically that we used to run with the Anymal-d simulator to create a complete robot urdf assembly.
 
 
-This package requires the `microstrain_inertial_description` as well as `xacro`. In following steps assume you have xarco installed already.
+This package requires the `microstrain_inertial_description`, `xacro`, and `joint_state_publisher`. In following steps assume you have xarco and installed already.
 
-Go to your catkin_ws and do:
+Go to your ros2_ws and do:
 ```bash
 $ cd src
+$ git clone git@github.com:ros/joint_state_publisher.git
+$ cd ..
+$ colcon build joint_state_publisher
+$ colcon build joint_state_publisher_gui
+$ source devel/setup.bash
+$ cd src
 $ git clone git@github.com:ori-drs/hesai_description.git
-$ cd hesai_description
-$ git checkout ros1
-$ cd ../..
-$ catkin build hesai_description
+$ cd ..
+$ colcon build hesai_description
 $ source devel/setup.bash
 $ cd src
 $ git clone https://github.com/LORD-MicroStrain/microstrain_inertial.git
-$ cd ..
-$ catkin build microstrain_inertial_description
+$ cd microstrain_inertial
+$ git checkout ros2
+$ cd ../..
+$ colcon build microstrain_inertial_description
 $ source devel/setup.bash
 $ cd src
 $ git clone git@github.com:ori-drs/magnet_v2_description.git
 $ cd magnet_v2_description
-$ git checkout compatible_with_anymal_d_ros_1
+$ git checkout ros2_maintained
 $ cd ../..
-$ catkin build magnet_v2_description
+$ colcon build magnet_v2_description
 $ source devel/setup.bash
 ```
 
 For visualizing the URDF with RViz launch:
 
 ```bash
-$ roslaunch magnet_v2_description visualize.launch
+$ ros2 launch magnet_v2_description visualize.launch.py
 ```
 
