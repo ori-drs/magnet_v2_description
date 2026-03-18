@@ -85,7 +85,7 @@
 
     <xacro:include filename="$(find hesai_description)/urdf/hesai_qt64.urdf.xacro"/>
 
-    <xacro:hesai_qt64 name="${prefix}hesai_qt64_device" parent="${prefix}magnet_v2_heatsink_and_case" simulation="${simulation}" use_gpu="${use_gpu}" lidar_frame="${prefix}pandar">
+    <xacro:hesai_qt64 name="${prefix}hesai_qt64_device" parent="${prefix}magnet_v2_heatsink_and_case" simulation="${simulation}" use_gpu="${use_gpu}" lidar_frame="hesai_lidar">
       <origin xyz="0 0 0.01" rpy="0 0 ${pi}" />
     </xacro:hesai_qt64>
 
