@@ -4,20 +4,20 @@
   <xacro:macro name="magnet_v2" params="parent *origin prefix:='' name:=magnet_v2 simulation:=false use_gpu:=true">
 
     <xacro:property name="imu_base_height" value="0.1115"/>
-    <link name="${prefix}magnet_v2_base_mount" />
-    <joint name="${parent}_to_${prefix}magnet_v2_base_mount" type="fixed">
+    <link name="${prefix}magnet_mount" />
+    <joint name="${parent}_to_${prefix}magnet_mount" type="fixed">
       <xacro:insert_block name="origin"/>      
       <parent link="${parent}" />
-      <child link="${prefix}magnet_v2_base_mount" />
+      <child link="${prefix}magnet_mount" />
     </joint>
 
-    <joint name="${prefix}magnet_v2_base_mount_to_${prefix}magnet_v2_heatsink_and_case" type="fixed">
-      <parent link="${prefix}magnet_v2_base_mount" />
-      <child link="${prefix}magnet_v2_heatsink_and_case" />
-      <origin xyz="0 0 ${imu_base_height}" rpy="0 0 0" />
+    <joint name="${prefix}magnet_mount_to_${prefix}magnet_case" type="fixed">
+      <parent link="${prefix}magnet_mount" />
+      <child link="${prefix}magnet_case" />
+      <origin xyz="0 0 ${imu_base_height}" rpy="0 0 ${pi}" />
     </joint>
 
-    <link name="${prefix}magnet_v2_heatsink_and_case">
+    <link name="${prefix}magnet_case">
       <visual>
         <material name="darkgrey">
           <color rgba="0.3 0.3 0.3 1"/>
@@ -40,7 +40,7 @@
     </link>
 
     <joint name="${prefix}magnet_to_left_camera" type="fixed">
-      <parent link="${prefix}magnet_v2_heatsink_and_case"/>
+      <parent link="${prefix}magnet_case"/>
       <child link="${prefix}left_camera"/>
       <origin xyz="0.00 -0.043 -0.011" rpy="${pi/2} ${pi} 0"/>
     </joint>
@@ -56,7 +56,7 @@
     </link>
 
     <joint name="${prefix}magnet_to_centre_camera" type="fixed">
-      <parent link="${prefix}magnet_v2_heatsink_and_case"/>
+      <parent link="${prefix}magnet_case"/>
       <child link="${prefix}centre_camera"/>
       <origin xyz="-0.043 0.000 -0.011" rpy="${-pi/2} 0 ${pi/2}"/>
     </joint>
@@ -72,20 +72,26 @@
     </link>
 
     <joint name="${prefix}magnet_to_right_camera" type="fixed">
-      <parent link="${prefix}magnet_v2_heatsink_and_case"/>
+      <parent link="${prefix}magnet_case"/>
       <child link="${prefix}right_camera"/>
       <origin xyz="0.000 0.043 -0.011" rpy="${-pi/2} 0 0"/>
     </joint>
 
     <xacro:include filename="$(find microstrain_inertial_description)/urdf/gx5_25.urdf.xacro"/>
-    <xacro:gx5_25 name="${prefix}gx5_25" parent="${prefix}magnet_v2_heatsink_and_case">
+    <xacro:gx5_25 name="${prefix}gx5_25" parent="${prefix}magnet_case">
       <origin xyz="0.00 0.0 0.0" rpy="${pi} 0 0" />
     </xacro:gx5_25>
 
+    <link name="${prefix}magnet_base" />
+    <joint name="${prefix}magnet_case_to_${prefix}magnet_base" type="fixed">
+      <parent link="${prefix}magnet_case" />
+      <child link="${prefix}magnet_base" />
+      <origin xyz="0 0 0.01" rpy="0 0 ${pi}" />
+    </joint>
 
     <xacro:include filename="$(find hesai_description)/urdf/hesai_qt64.urdf.xacro"/>
 
-    <xacro:hesai_qt64 name="${prefix}hesai_qt64_device" parent="${prefix}magnet_v2_heatsink_and_case" simulation="${simulation}" use_gpu="${use_gpu}" lidar_frame="hesai_lidar">
+    <xacro:hesai_qt64 name="${prefix}hesai_qt64_device" parent="${prefix}magnet_case" simulation="${simulation}" use_gpu="${use_gpu}" lidar_frame="hesai_lidar">
       <origin xyz="0 0 0.01" rpy="0 0 ${pi}" />
     </xacro:hesai_qt64>
 
